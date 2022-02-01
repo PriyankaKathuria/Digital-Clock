@@ -1,0 +1,25 @@
+from tkinter import *
+from tkinter.ttk import *
+
+from time import strftime
+
+
+root = Tk()
+root.title('Clock')
+
+# use H for 24 hrs format and I for 12 hrs
+def time():
+	string = strftime('%I:%M:%S %p')
+	lbl.config(text = string)
+	lbl.after(1000, time)
+
+
+lbl = Label(root, font = ('DS-Digital', 55),
+			background = 'black',
+			foreground = 'green')
+
+#positioning it to center
+lbl.pack(anchor = 'center')
+time()
+
+mainloop()
